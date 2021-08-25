@@ -1,11 +1,11 @@
 import telebot
 
-#переменные
+#змінні
 bot = telebot.TeleBot('798951881:AAG2sRR_q2r2-p16_4k7Upvz378olbnmnWc')
 keyboard1 = telebot.types.ReplyKeyboardMarkup(True)
 keyboard1.row('Привіт', 'До наступного разу', 'Перейти на сайт')
 
-#старт бота и прием сообщений разного типа
+#старт бота і прийом повідомлень
 @bot.message_handler(commands=['start'])
 def start_message(message):
     bot.send_message(message.chat.id, 'Бот включено', reply_markup = keyboard1)
@@ -14,7 +14,7 @@ def start_message(message):
 def message(message):
     bot.send_sticker(message.chat.id, 'CAADAgADAQADwDZPExguczCrPy1RFgQ')
 
-#код приема сообщений
+#код прийому повідомлень
 @bot.message_handler(content_types=['text'])
 def send_text(message):
     if message.text.lower() == 'привіт':
